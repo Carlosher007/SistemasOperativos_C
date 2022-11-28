@@ -1,4 +1,4 @@
-/* Archivo responsable de manejar la ejecución del comando */
+/* Archivo responsable de manejar la ejecución del comando .*/
 
 #include "main.h"
 
