@@ -17,7 +17,6 @@ int main()
 
   // Imprimes
   printf("%s\n", p);
-
-  // Lo liberas
-  free(p);
+  
+  free(p); // Liberamos la zona de memoria
 }

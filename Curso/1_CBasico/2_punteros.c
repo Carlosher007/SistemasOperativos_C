@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -15,7 +16,7 @@ int main()
   // Cambiar valor de a a traves de puntero
   *pointer_a = 12;
 
-  //Liberamos la zona de memoria
-  free(pointer_a);
-  free(another_pointer);
+  // Liberamos la zona de memoria
+// free(pointer_a);
+// free(another_pointer);
 }

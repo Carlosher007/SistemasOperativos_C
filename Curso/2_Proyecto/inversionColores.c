@@ -46,6 +46,10 @@ struct RGB *get_inverted_colors(char *file)
   FILE *f = fopen(file, "r");
 
   int i = 0;
+  /*
+  fgets(puntero donde queremos que almacene lo que lea el fichero, cuanto ocupa la linea, el fichero)
+  Devuelve un numero positivo si ha conseguido leer, 0 si no ha leido nada y -1 si ha llegado al final del fichero
+  */
   while (fgets(line, line_size, f))
   {
     if (i >= limit - 1)
@@ -85,10 +89,11 @@ int main(int argc, char **argv)
   // {
   //   printf("Agumento %i: %s\n", i, argv[i] );
   // }
+  // Hagamos que argc sea dos con assert
 
   if (argc != 2)
   {
-    printf("Error. Uso: colores fichero \n");
+    printf("Error. Uso: colores fichero\n");
     exit(-1);
   }
 

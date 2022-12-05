@@ -14,6 +14,7 @@ int main()
   char *msg1 = malloc(sizeof(char)* 8);
   char *msg2 = malloc(sizeof(char)* 8);
 
+  //el strcpy sirve para copiar un string a otro
   strcpy(msg1,"Hello");
   strcpy(msg2,"Mensaje");
 
