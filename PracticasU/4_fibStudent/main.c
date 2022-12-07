@@ -25,11 +25,11 @@ void *fibonacci_over_vector(void *);
 int *vector;
 int nprocesadores;
 int stride;
-
+int vl;
 int main(int argc, char *argv[])
 {
-  int vl, // vl: vector_length
-      mr; // mr: max_random
+  // int vl, // vl: vector_length
+  int mr; // mr: max_random
   int i;
   pthread_t *hilos;
   int *hilos_id;
@@ -92,17 +92,11 @@ int fibonacci(int m)
 void *fibonacci_over_vector(void *pos)
 {
   int thread_id = (int)pos;
-  int bajo = thread_id * stride;
-  int alto = (thread_id + 1) * stride;
   int i;
-  printf("Mi posicion %d el stride %d [%d - %d)\n", thread_id, stride, bajo, alto);
-  for (i = bajo; i < alto; i++)
+  for (i = thread_id; i < vl; i += nprocesadores)
   {
+    printf("Soy el hilo %d y voy a calcular en la posicion %d\n", thread_id, i);
     vector[i] = fibonacci(vector[i]);
   }
   return NULL;
 }
-
-// Ahora haremos un nuevo fibonacci_over_vector en en el que los hilos no se procesan elementos contiguos del vector sino que brincan de la posicion i*num_hilos+id donde i es un vaolor que itera desde 0,1,2..., tamano_vector.
-// De tal forma que si el vector es de tamaño 12 y tenemos 4 hilos, el hilo 0 procesa los elementos 0,4,8 y el hilo 1 los elementos 1,5,9 y asi sucesivamente.
-//la nueva funcion se llama fibonacci_over_vector2 y sera asi
